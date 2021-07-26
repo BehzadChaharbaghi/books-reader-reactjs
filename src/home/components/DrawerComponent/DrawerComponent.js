@@ -1,7 +1,14 @@
-import React from "react";
+import React from 'react';
+import {Drawer} from "@material-ui/core";
 
 const DrawerComponent = () => {
-  return <div>hi</div>;
+  return (
+      <div>
+        <Drawer anchor={'right'}>
+
+          </Drawer>
+      </div>
+  );
 };
 
 export default DrawerComponent;

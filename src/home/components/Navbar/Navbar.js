@@ -20,7 +20,8 @@ const Navbar = () => {
   const [checked, setChecked] = useState(false);
   //{__Breakpoints__}
   const theme = useTheme();
-  const isMatch = useMediaQuery(theme.breakpoints.down("xs"));
+  const isMatch = useMediaQuery(theme.breakpoints.down("sm"));
+
   const navItem = ["کتاب های صوتی", "پادکست", "سریال صوتی", "کپسول"].map(
     (item) => {
       return (

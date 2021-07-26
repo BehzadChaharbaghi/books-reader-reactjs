@@ -5,7 +5,6 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    // height: "100vh",
     minHeight: "100vh",
     backgroundImage: `url(${process.env.PUBLIC_URL + "/images/landing.jpg"})`,
     backgroundRepeat: "no-repeat",

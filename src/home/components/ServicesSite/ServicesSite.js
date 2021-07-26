@@ -1,14 +1,6 @@
 import React from "react";
 import useStyles from "./styles";
-import {
-  Card,
-  CardActionArea,
-  CardContent,
-  CardMedia,
-  Grid,
-  Paper,
-  Typography,
-} from "@material-ui/core";
+import { Grid, Paper, Typography } from "@material-ui/core";
 
 const ServicesSite = () => {
   const classes = useStyles();
@@ -36,37 +28,33 @@ const ServicesSite = () => {
   ];
   return (
     <div className={classes.root}>
-      {text.map((item) => {
-        return (
-          <>
-            <Card className={classes.root}>
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  alt="Contemplative Reptile"
-                  height="140"
-                  image={item.imageUrl}
-                  title="Contemplative Reptile"
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="h2">
-                    Lizard
+      <section className={classes.container}>
+        {text.map((item) => {
+          return (
+            <>
+              <Paper className={classes.paper}>
+                <img src={`${item.imageUrl}`} />
+                <section className={classes.typography}>
+                  <Typography
+                    className={classes.title}
+                    variant={"h6"}
+                    component={"h4"}
+                  >
+                    {item.title}
                   </Typography>
                   <Typography
-                    variant="body2"
-                    color="textSecondary"
-                    component="p"
+                    className={classes.desc}
+                    variant={"body2"}
+                    component={"h4"}
                   >
-                    Lizards are a widespread group of squamate reptiles, with
-                    over 6,000 species, ranging across all continents except
-                    Antarctica
+                    {item.desc}
                   </Typography>
-                </CardContent>
-              </CardActionArea>
-            </Card>
-          </>
-        );
-      })}
+                </section>
+              </Paper>
+            </>
+          );
+        })}
+      </section>
     </div>
   );
 };
