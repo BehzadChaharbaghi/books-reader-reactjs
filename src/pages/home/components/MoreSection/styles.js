@@ -62,6 +62,15 @@ const useStyles = makeStyles((theme) => ({
   desc: {
     color: "#ddd",
   },
+  loading: {
+    display: "flex",
+    justifyContent: "center",
+    width: "80%",
+    margin: "0 auto",
+    marginTop: "22rem",
+    textAlign: "center",
+    color: "#ddd",
+  },
 }));
 
 export default useStyles;

@@ -1,0 +1,24 @@
+{
+  "more": [
+    {
+      "imageUrl": "/images/book1.jpg",
+      "title": "باشگاه 5 صبحی ها"
+    },
+    {
+      "imageUrl": "/images/book2.jpg",
+      "title": "استرينگ كست"
+    },
+    {
+      "imageUrl": "/images/book1.jpg",
+      "title": "من پیش از تو"
+    },
+    {
+      "imageUrl": "/images/book2.jpg",
+      "title": "کتاب راهبی که فراری اش را فروخت"
+    }
+  ],
+  "categorie": [
+    { "imageUrl": "/images/history.png", "title": "تاریخی" },
+    { "imageUrl": "/images/podcast.png", "title": "پخش" }
+  ]
+}
