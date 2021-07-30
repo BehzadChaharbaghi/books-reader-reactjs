@@ -28,12 +28,12 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   btn: {
-    transform: "translateY(1rem)",
+    transform: "translateY(1.3rem)",
     zIndex: 1,
     background: "#fff",
     color: "#000",
     "&:hover": {
-      background: "#000",
+      background: "#fff",
     },
   },
   firstLine: {

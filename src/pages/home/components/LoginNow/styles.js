@@ -20,10 +20,10 @@ const useStyles = makeStyles((theme) => ({
     background:
       "radial-gradient(at left top, #0033ff, #0700cb), radial-gradient(at left bottom, #0700cb, #0700cb)",
     borderRadius: 5,
-    fontSize: "2.5rem",
+    fontSize: "1.9rem",
     fontWeight: 400,
     padding: "1.5rem 3.2rem",
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down("sm")]: {
       padding: "0.5rem 2rem",
       fontWeight: 600,
       fontSize: "1.2rem",

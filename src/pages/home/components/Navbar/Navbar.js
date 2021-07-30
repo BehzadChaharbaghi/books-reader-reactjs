@@ -10,9 +10,9 @@ import {
 } from "@material-ui/core";
 // {__Icons__}
 import MenuIcon from "@material-ui/icons/Menu";
-import DrawerComponent from "../DrawerComponent/DrawerComponent";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import ListIcon from "@material-ui/icons/List";
+import DrawerMenu from "../../../../components/drawer/DrawerMenu";
 
 const Navbar = () => {
   const classes = useStyles();
@@ -40,12 +40,13 @@ const Navbar = () => {
     <div className={classes.root}>
       <AppBar className={classes.appbar} elevation={0}>
         {isMatch ? (
-          <DrawerComponent />
+          <DrawerMenu />
         ) : (
           <Toolbar className={classes.appbarWrapper}>
             <h1 className={classes.appbarTitle}>
               <span className={classes.colorText}>جزیره</span> من
             </h1>
+
             <IconButton>
               <MenuIcon className={classes.icon} />
             </IconButton>
