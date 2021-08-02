@@ -1,11 +1,79 @@
 import React from "react";
-import Home from "./pages/home/Home";
+import LandingPage from "./pages/landing page/LandingPage";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import AudioBook from "./pages/main/components/audio-book/AudioBook";
+import { ToastContainer } from "material-react-toastify";
+import Redirect from "react-router-dom/es/Redirect";
+import Header from "./components/heders/components/header/Header";
+import Layout from "./components/layout/Layout";
+import Main from "./pages/main/Main";
+import MainPage from "./pages/main/components/main-page/MainPage";
+
+const isLogin = () => !!localStorage.getItem("x-auth-token");
+
+//Pub-Pri Component
+
+const PublicRoute = ({ component, ...props }) => {
+  // return (
+  //   <Route
+  //     {...props}
+  //     render={(props) => {
+  //       if (isLogin()) return <Redirect to="/" />;
+  //       else {
+  //         return React.createElement(component, props);
+  //       }
+  //     }}
+  //   />
+  // );
+};
+const PrivateRoute = ({ render, ...props }) => {
+  // return (
+  //   <Route
+  //     {...props}
+  //     render={(props) => {
+  //       if (isLogin()) return render(props);
+  //       else return <Redirect to={"/"} />;
+  //     }}
+  //   />
+  // );
+};
 
 const App = () => {
   return (
-    <div>
-      <Home />
-    </div>
+    <>
+      {/*<BrowserRouter>*/}
+      {/*  <Switch>*/}
+      {/*<PublicRoute path={"/"} component={LandingPage} />*/}
+      {/*<PrivateRoute*/}
+      {/*  path={"/"}*/}
+      {/*  render={() => (*/}
+      <BrowserRouter>
+        <Switch>
+          <Route exact path={"/"} component={LandingPage} />
+          <Layout>
+            <Main>
+              <Route path={"/index"} component={MainPage} />
+              <Route path={"/AudioBook"} component={AudioBook} />
+            </Main>
+          </Layout>
+        </Switch>
+      </BrowserRouter>
+      {/*      )}*/}
+      {/*    />*/}
+      {/*  </Switch>*/}
+      {/*</BrowserRouter>*/}
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
+    </>
   );
 };
 

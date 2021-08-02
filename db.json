@@ -14,11 +14,17 @@
     },
     {
       "imageUrl": "/images/book2.jpg",
-      "title": "کتاب راهبی که فراری اش را فروخت"
+      "title": "کتاب راهبی که فراری اش را فروخت و رفت"
     }
   ],
   "categorie": [
     { "imageUrl": "/images/history.png", "title": "تاریخی" },
     { "imageUrl": "/images/podcast.png", "title": "پخش" }
+  ],
+  "users": [
+    {
+      "username": "09380582441",
+      "password": "1234"
+    }
   ]
 }
