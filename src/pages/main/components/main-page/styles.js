@@ -4,7 +4,6 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     flexDirection: "column",
-    height: "100vh",
     background: "#09001A",
   },
   mainSection: {
@@ -46,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
   sectionMore: {
     borderTop: "solid 7px #FFC400",
   },
-  sectionFree: {
+  sectionBestsellers: {
     display: "flex",
     flexDirection: "row",
     backgroundImage: `url(${process.env.PUBLIC_URL + "/images/bg-hot.png"})`,
@@ -65,10 +64,105 @@ const useStyles = makeStyles((theme) => ({
       borderColor: "#fff",
     },
   },
-  sectionTextFree: {
+  sectionTextBtn: {
+    display: "flex",
+    flexDirection: "column",
     padding: "0 0.8rem",
     "& h3": {
       width: "6rem",
+    },
+    "& button": {
+      height: "max-content",
+    },
+    [theme.breakpoints.up("sm")]: {
+      flexDirection: "row",
+      justifyContent: "center",
+      textAlign: "center",
+      alignContent: "center",
+      alignItems: "center",
+      marginBottom: "auto",
+    },
+  },
+  sectionViewBook: {
+    display: "flex",
+    background: "#11151c",
+    flexDirection: "column",
+    justifyContent: "center",
+    padding: 0,
+    paddingBottom: " 1rem",
+    color: "#fff",
+    "& h1": {
+      display: "none",
+    },
+  },
+  textTitleViewBook: {
+    // background: "#000814",
+    textAlign: "right",
+    marginRight: 0.5,
+    paddingRight: "0.5rem",
+    borderRight: "solid 6px #fff",
+  },
+  sectionFree: {
+    display: "flex",
+    flexDirection: "row",
+    backgroundImage: `url(${process.env.PUBLIC_URL + "/images/bg-free.png"})`,
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    backgroundPosition: "right",
+    padding: " 1rem 0",
+    color: "#fff",
+    "& h1": {
+      display: "none",
+    },
+    "& button": {
+      fontWeight: "bold",
+      borderRadius: 18,
+      color: "#fff",
+      borderColor: "#fff",
+    },
+  },
+  spanRowFooter: {
+    gridAutoRows: "max-content",
+    overflow: "hidden",
+    paddingTop: "0.5rem",
+    "& h1": {
+      fontSize: "large",
+      textAlign: "right",
+      color: "#FFC400",
+    },
+  },
+  imageContainer: {
+    margin: "1rem 0",
+  },
+  mediaCenter: {
+    height: "17rem",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    "&:hover": {
+      transition: "transform 1s",
+      transform: "scale(1.5)",
+    },
+    [theme.breakpoints.down("sm")]: {
+      height: "20rem",
+    },
+  },
+  textPodcast: {
+    display: "flex",
+    flexDirection: "row-reverse",
+    justifyContent: "center",
+    alignItems: "center",
+    alignContent: "center",
+    color: "#ffc400",
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    "& svg": {
+      width: "4rem",
+      height: "4rem",
+    },
+    "& h1": {
+      fontSize: "3rem",
     },
   },
 }));

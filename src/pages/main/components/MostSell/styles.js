@@ -32,16 +32,11 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     alignContent: "center",
     alignItems: "center",
-    background: "unset",
+    background: "#08001a",
     color: "#fff",
-    width: "15rem",
-    height: "16rem",
+    width: "14rem",
+    height: "21rem",
     // margin: "0 1rem",
-    borderRadius: 15,
-    "& a": {
-      textDecoration: "unset",
-      width: "100%",
-    },
     [theme.breakpoints.up("lg")]: {
       flexDirection: "row",
       justifyContent: "space-around",
@@ -57,14 +52,47 @@ const useStyles = makeStyles((theme) => ({
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
   },
+  containerContent: {
+    padding: " 0.5rem",
+  },
   title: {
     color: "#ddd",
     textOverflow: "ellipsis",
     overflow: "hidden",
     whiteSpace: "nowrap",
+    textAlign: "right",
   },
-  desc: {
+  lineCenter: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  lastLine: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  author: {
     color: "#ddd",
+    textOverflow: "ellipsis",
+    overflow: "hidden",
+    whiteSpace: "nowrap",
+    textAlign: "right",
+    fontWeight: 200,
+  },
+  badge: {
+    display: "inline",
+    borderRadius: 8,
+    fontWeight: 200,
+    background: "#ffaa00",
+    color: "#000",
+    padding: "0.2rem",
+  },
+  price: {
+    color: "#00edff",
+    whiteSpace: "nowrap",
+    textAlign: "right",
+    fontWeight: 200,
   },
 }));
 

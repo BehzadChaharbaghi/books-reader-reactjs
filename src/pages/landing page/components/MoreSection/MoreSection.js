@@ -8,6 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation } from "swiper";
 import "swiper/swiper-bundle.css";
 import "../../../../theme/swiper-styles.css";
+import { Link } from "react-router-dom";
 
 SwiperCore.use([Navigation]);
 
@@ -57,19 +58,21 @@ const MoreSection = () => {
               <>
                 <SwiperSlide>
                   <Card className={classes.card}>
-                    <CardActionArea>
-                      <CardMedia
-                        className={classes.media}
-                        image={`${item.imageUrl}`}
-                      />
-                      <Typography
-                        className={classes.title}
-                        variant="subtitle1"
-                        component="h6"
-                      >
-                        {item.title}
-                      </Typography>
-                    </CardActionArea>
+                    <Link to={"/BookDetail/" + item.id}>
+                      <CardActionArea>
+                        <CardMedia
+                          className={classes.media}
+                          image={`${item.imageUrl}`}
+                        />
+                        <Typography
+                          className={classes.title}
+                          variant="subtitle1"
+                          component="h6"
+                        >
+                          {item.title}
+                        </Typography>
+                      </CardActionArea>
+                    </Link>
                   </Card>
                 </SwiperSlide>
               </>

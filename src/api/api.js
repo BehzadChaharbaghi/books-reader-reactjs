@@ -6,3 +6,11 @@ export const getAxiosInstanceJsonServer = () => {
     headers: {},
   });
 };
+// export const postJSHolder = () => {
+//   return Axios.create({
+//     baseURL: "https://jsonplaceholder.typicode.com/",
+//     headers: {
+//       "Content-type": "application/json; charset=UTF-8",
+//     },
+//   });
+// };

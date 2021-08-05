@@ -3,7 +3,15 @@ import useStyles from "./styles";
 import classNames from "classnames/bind";
 import MoreSection from "../../../landing page/components/MoreSection/MoreSection";
 import FreeSection from "../../../landing page/components/FreeSection/FreeSection";
-import { Button } from "@material-ui/core";
+import {
+  Button,
+  Card,
+  CardActionArea,
+  CardMedia,
+  Grid,
+} from "@material-ui/core";
+import PlayArrowIcon from "@material-ui/icons/PlayArrow";
+import MostSell from "../MostSell/MostSell";
 
 const MainPage = () => {
   const classes = useStyles();
@@ -16,17 +24,52 @@ const MainPage = () => {
           <div className={classNames(classes.spanRow, classes.sectionMore)}>
             <MoreSection />
           </div>
-          <div className={classNames(classes.spanRow, classes.sectionFree)}>
-            <section className={classes.sectionTextFree}>
+          <div
+            className={classNames(classes.spanRow, classes.sectionBestsellers)}
+          >
+            <section className={classes.sectionTextBtn}>
               <h3>پرفروش ها</h3>
               <Button variant={"outlined"}>بیشتر</Button>
             </section>
+            <MostSell />
+          </div>
+          <div className={classNames(classes.spanRow, classes.sectionViewBook)}>
+            <section className={classes.textTitleViewBook}>
+              <h3>موفقیت</h3>
+            </section>
             <FreeSection />
           </div>
-          <div className={classes.spanRow}>Item 3</div>
-          <div className={classes.spanRow}>Item 4</div>
-          <div className={classes.spanRow}>Item 5</div>
-          <div>Item 6</div>
+          <div className={classNames(classes.spanRow, classes.sectionFree)}>
+            <section className={classes.sectionTextBtn}>
+              <h3>رایگان ها</h3>
+              <Button variant={"outlined"}>بیشتر</Button>
+            </section>
+            <MostSell />
+          </div>
+          <div className={classNames(classes.spanRow, classes.sectionViewBook)}>
+            <section className={classes.textTitleViewBook}>
+              <h3>جدیدترین های تاک</h3>
+            </section>
+            <MostSell />
+          </div>
+          {/*Footer Section*/}
+          <div className={classes.spanRowFooter}>
+            <Grid className={classes.imageContainer} item xs={12}>
+              <Card>
+                <CardActionArea>
+                  <CardMedia
+                    className={classes.mediaCenter}
+                    image={"/images/podcast.png"}
+                    title="image"
+                  />
+                  <section className={classes.textPodcast}>
+                    <h1>پخش</h1>
+                    <PlayArrowIcon />
+                  </section>
+                </CardActionArea>
+              </Card>
+            </Grid>
+          </div>
         </div>
       </section>
     </div>

@@ -8,6 +8,10 @@ import Header from "./components/heders/components/header/Header";
 import Layout from "./components/layout/Layout";
 import Main from "./pages/main/Main";
 import MainPage from "./pages/main/components/main-page/MainPage";
+import SubscriptionTypes from "./pages/main/components/subscription-types/SubscriptionTypes";
+import BookDetail from "./pages/main/components/book-detail/BookDetail";
+import { LayoutProvider } from "./context/LayoutContext";
+import { ProductProvider } from "./context/ProductContext";
 
 const isLogin = () => !!localStorage.getItem("x-auth-token");
 
@@ -50,12 +54,21 @@ const App = () => {
       <BrowserRouter>
         <Switch>
           <Route exact path={"/"} component={LandingPage} />
-          <Layout>
-            <Main>
-              <Route path={"/index"} component={MainPage} />
-              <Route path={"/AudioBook"} component={AudioBook} />
-            </Main>
-          </Layout>
+          <LayoutProvider>
+            <ProductProvider>
+              <Layout>
+                <Main>
+                  <Route path={"/index"} component={MainPage} />
+                  <Route path={"/AudioBook"} component={AudioBook} />
+                  <Route path={"/BookDetail/:id"} component={BookDetail} />
+                  <Route
+                    path={"/SubscriptionTypes"}
+                    component={SubscriptionTypes}
+                  />
+                </Main>
+              </Layout>
+            </ProductProvider>
+          </LayoutProvider>
         </Switch>
       </BrowserRouter>
       {/*      )}*/}

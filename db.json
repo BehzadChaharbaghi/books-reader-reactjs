@@ -1,30 +1,185 @@
 {
   "more": [
     {
+      "id": 1,
       "imageUrl": "/images/book1.jpg",
       "title": "باشگاه 5 صبحی ها"
     },
     {
+      "id": 2,
       "imageUrl": "/images/book2.jpg",
       "title": "استرينگ كست"
     },
     {
+      "id": 3,
       "imageUrl": "/images/book1.jpg",
       "title": "من پیش از تو"
     },
     {
+      "id": 4,
       "imageUrl": "/images/book2.jpg",
       "title": "کتاب راهبی که فراری اش را فروخت و رفت"
     }
   ],
   "categorie": [
-    { "imageUrl": "/images/history.png", "title": "تاریخی" },
-    { "imageUrl": "/images/podcast.png", "title": "پخش" }
+    {
+      "imageUrl": "/images/history.png",
+      "title": "تاریخی"
+    },
+    {
+      "imageUrl": "/images/podcast.png",
+      "title": "پخش"
+    }
   ],
   "users": [
     {
       "username": "09380582441",
       "password": "1234"
+    }
+  ],
+  "subscriptionTypes": [
+    {
+      "id": 1,
+      "textCredit": "اشتراک نقره ای  (اشتراک نقره ای 45 روزه )",
+      "amount": 100000,
+      "color": "#fb8500"
+    },
+    {
+      "id": 2,
+      "textCredit": "اشتراک طلایی",
+      "amount": 150000,
+      "color": "#2a9d8f"
+    },
+    {
+      "id": 3,
+      "textCredit": "اشتراک برنزی  (اشتراک برنزی 30 روزه )",
+      "amount": 50000,
+      "color": "#deaaff"
+    }
+  ],
+  "getMainProductCategoryList": [
+    [
+      {
+        "id": 1,
+        "name": "کپسول",
+        "description": "کپسول",
+        "pic": "/Files/1/1793694197.jpg"
+      },
+      {
+        "id": 2,
+        "name": "سریال صوتی",
+        "description": "سریال های تاک",
+        "pic": "/Files/1/1793694197.jpg"
+      },
+      {
+        "id": 3,
+        "name": "پادکست",
+        "description": "پادکست های تاک",
+        "pic": "/Files/1/1793694197.jpg"
+      },
+      {
+        "id": 4,
+        "name": "کتاب صوتی",
+        "description": "کتاب های صوتی در اینجا قرار دارند . ",
+        "pic": "/Files/1/1793694197.jpg"
+      }
+    ]
+  ],
+  "getFreeProductCategoryList": [
+    {
+      "id": 1,
+      "name": "سبک زندگی",
+      "pic": "/images/book1.jpg"
+    },
+    {
+      "id": 2,
+      "name": "آموزشی",
+      "pic": "/images/book1.jpg"
+    },
+    {
+      "id": 3,
+      "name": "تکنولوژی و آینده",
+      "pic": "/images/book1.jpg"
+    }
+  ],
+  "getMostSelledProducts": [
+    {
+      "id": 3,
+      "productCategoryId": 1,
+      "productCategoryName": "سبک زندگی",
+      "publishersName": "انتشارات نوین",
+      "authorsName": "رابرت کیوساکی",
+      "publisherImage": "/images/book1.jpg",
+      "publisherId": 2015,
+      "title": "باشگاه 5 صبحی ها",
+      "currentFileId": 2138,
+      "productPrice": 45000,
+      "productOffPrice": 35000,
+      "rateValue": "3",
+      "countRated": "10",
+      "sellCount": 22,
+      "visitCount": 33,
+      "downloadCount": 0,
+      "time": "00:34:22",
+      "fileSize": "29 مگابایت",
+      "language": "فارسی",
+      "productSeason": 4,
+      "commentCount": 3,
+      "pic": "/images/book1.jpg",
+      "productDescription": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet laborum officiis rerum. Ad aliquam cupiditate delectus deleniti ea, eum fugiat harum iste, nisi officiis pariatur quo quod recusandae sequi tenetur?"
+    },
+    {
+      "id": 2,
+      "productCategoryId": 2,
+      "productCategoryName": "سبک زندگی",
+      "publishersName": "انتشارات نوین",
+      "authorsName": "رابرت کیوساکی",
+      "publisherImage": "/images/book1.jpg",
+      "publisherId": 2015,
+      "title": "باشگاه 5 صبحی ها ",
+      "currentFileId": 2138,
+      "productPrice": 45000,
+      "productOffPrice": 35000,
+      "rateValue": "3",
+      "sellCount": 22,
+      "visitCount": 33,
+      "countRated": "9",
+      "time": "00:34:22",
+      "fileSize": "29 مگابایت",
+      "language": "فارسی",
+      "productSeason": 4,
+      "downloadCount": 0,
+      "commentCount": 3,
+      "pic": "/images/book1.jpg",
+      "productDescription": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet laborum officiis rerum. Ad aliquam cupiditate delectus deleniti ea, eum fugiat harum iste, nisi officiis pariatur quo quod recusandae sequi tenetur?"
+    },
+    {
+      "id": 3,
+      "productCategoryId": 1,
+      "productCategoryName": "سبک زندگی",
+      "publishersName": "انتشارات نوین",
+      "authorsName": "رابرت کیوساکی",
+      "publisherImage": "/images/book1.jpg",
+      "publisherId": 2015,
+      "title": "باشگاه 5 صبحی ها ",
+      "currentFileId": 2138,
+      "productPrice": 45000,
+      "productOffPrice": 35000,
+      "rateValue": "3",
+      "sellCount": 22,
+      "visitCount": 33,
+      "time": "00:34:22",
+      "countRated": "3",
+      "downloadCount": 0,
+      "fileSize": "29 مگابایت",
+      "language": "فارسی",
+      "productSeason": 4,
+      "commentCount": 3,
+      "pic": "/images/book1.jpg",
+      "productDescription": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet laborum officiis rerum. Ad aliquam cupiditate delectus deleniti ea, eum fugiat harum iste, nisi officiis pariatur quo quod recusandae sequi tenetur?"
+    },
+    {
+      "id": "1"
     }
   ]
 }
