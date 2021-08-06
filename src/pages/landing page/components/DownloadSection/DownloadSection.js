@@ -7,7 +7,7 @@ function DownloadSection() {
   return (
     <div className={classes.root}>
       <section className={classes.downloadSection}>
-        <img className={classes.mobile} src={"/images/mobile.png"} />
+        <img src={"/images/mobile.png"} />
         <div className={classes.container}>
           <section className={classes.text}>
             <h1>دانلود اپلیکیشن تاک</h1>

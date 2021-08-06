@@ -1,12 +1,14 @@
 import { getAxiosInstanceJsonServer } from "./api";
 
 export const loginApi = (user, callback) => {
+  console.log(JSON.stringify(user));
   getAxiosInstanceJsonServer()
-    .post("users", user)
+    .post("auth/login", JSON.stringify(user))
     .then((response) => {
       const data = response.data;
       console.log(data);
       callback(true, data);
+      // console.log(error);
     })
     .catch((error) => {
       console.log(error);

@@ -9,9 +9,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#08001a",
     borderRadius: 5,
   },
-  container: {
-    margin: "auto 0",
-  },
   downloadSection: {
     display: "flex",
     [theme.breakpoints.down("xl")]: {
@@ -28,6 +25,9 @@ const useStyles = makeStyles((theme) => ({
         maxWidth: "15rem",
       },
     },
+  },
+  container: {
+    margin: "auto 0",
   },
   text: {
     display: "flex",

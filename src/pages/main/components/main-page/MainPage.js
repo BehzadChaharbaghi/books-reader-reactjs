@@ -13,6 +13,8 @@ import {
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import MostSell from "../MostSell/MostSell";
 
+const isLogin = () => !!localStorage.getItem("token");
+
 const MainPage = () => {
   const classes = useStyles();
 
@@ -20,7 +22,7 @@ const MainPage = () => {
     <div className={classes.root}>
       <section className={classes.background} />
       <section className={classes.mainSection}>
-        <div className={classes.grid}>
+        <div className={!isLogin ? classes.grid : classes.gridAfterLogin}>
           <div className={classNames(classes.spanRow, classes.sectionMore)}>
             <MoreSection />
           </div>

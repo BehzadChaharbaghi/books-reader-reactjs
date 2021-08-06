@@ -1,7 +1,7 @@
-import { createMuiTheme } from "@material-ui/core";
+import { createTheme } from "@material-ui/core/styles";
 //** Material Ui dar hastash az JSS estefade karde...bara hamin mishe mesle paeen jss nevesht
 
-const Theme = createMuiTheme({
+const Theme = createTheme({
   overrides: {
     MuiTypography: {
       root: {

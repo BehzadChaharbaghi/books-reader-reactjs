@@ -11,11 +11,11 @@ import FlareOutlinedIcon from "@material-ui/icons/FlareOutlined";
 
 const RightSideBar = () => {
   const items = [
-    { icon: <LocalMallIcon /> },
-    { icon: <AccountBalanceWalletIcon /> },
-    { icon: <FolderIcon /> },
-    { icon: <QuestionAnswerIcon /> },
-    { icon: <InfoIcon /> },
+    { icon: <LocalMallIcon />, link: "/index" },
+    { icon: <AccountBalanceWalletIcon />, link: "/SubscriptionTypes" },
+    { icon: <FolderIcon />, link: "/MyLibrary" },
+    { icon: <QuestionAnswerIcon />, link: "" },
+    { icon: <InfoIcon />, link: "" },
   ];
   //{__Breakpoints__}
   const theme = useTheme();
@@ -41,7 +41,7 @@ const RightSideBar = () => {
           {items.map((item) => {
             return (
               <Button>
-                <Link className={classes.link} to={"/index"}>
+                <Link className={classes.link} to={item.link}>
                   <div className={classes.iconSection}>{item.icon}</div>
                 </Link>
               </Button>

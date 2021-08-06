@@ -72,30 +72,32 @@ const Auth = (props) => {
 
   // Register Controller
   const handleRegister = () => {
-    // const user = {
-    //   name: nameRegister,
-    //   family: lastNameRegister,
-    //   mobile: mobileRegister,
-    //   password: passwordRegister,
-    //   confPassword: confpasswordRegister,
-    // };
-    // const error = validateRegister(user);
-    // if (error) return toast.warning(error);
-    // user.confPassword = undefined;
-    //
-    // // registerApi(user, (isOk, data) => {
-    // //   if (!isOk) return toast.error(data);
+    const user = {
+      name: nameRegister,
+      family: lastNameRegister,
+      mobile: mobileRegister,
+      password: passwordRegister,
+      confPassword: confpasswordRegister,
+    };
+    const error = validateRegister(user);
+    if (error) return toast.warning(error);
+    user.confPassword = undefined;
+
+    // registerApi(user, (isOk, data) => {
+    //   if (!isOk) return toast.error(data);
     //
     //   toast.success("ثبت نام شما با موفقیت انجام شد");
-    //   // localStorage.setItem("name", data.name);
-    //   // localStorage.setItem("image", data.image);
-    //   // localStorage.setItem("username", data.username);
-    //   // localStorage.setItem("x-auth-token", data["x-auth-token"]);
-    //   // window.location.reload();
+    //   localStorage.setItem("name", data.name);
+    //   localStorage.setItem("image", data.image);
+    //   localStorage.setItem("username", data.username);
+    //   localStorage.setItem("x-auth-token", data["x-auth-token"]);
+    //   window.location.reload();
     // });
   };
   // Login Controller
   const handleLogin = () => {
+    console.log(mobileLogin);
+    console.log(passwordLogin);
     const user = {
       username: mobileLogin,
       password: passwordLogin,
@@ -105,13 +107,12 @@ const Auth = (props) => {
 
     loginApi(user, (isOk, data) => {
       if (!isOk) return toast.error(data);
-      //login success & set localStorage browser
-      return toast.success("شما با موفقیت وارد شدید");
-      // localStorage.setItem("name", data.name);
-      // localStorage.setItem("image", data.image);
-      // localStorage.setItem("username", data.username);
-      // localStorage.setItem("x-auth-token", data["x-auth-token"]);
-      // window.location.reload();
+      // login success & set localStorage browser
+      toast.success("شما با موفقیت وارد شدید");
+      localStorage.setItem("username", data.userName);
+      localStorage.setItem("userId", data.userId);
+      localStorage.setItem("token", data["token"]);
+      window.location.reload();
     });
   };
 

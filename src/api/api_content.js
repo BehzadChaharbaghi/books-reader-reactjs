@@ -80,6 +80,7 @@ export const getMoreSection = (callback) => {
   getAxiosInstanceJsonServer()
     .get("more")
     .then((response) => {
+      console.log(response);
       const data = response.data;
       callback(true, data);
     })

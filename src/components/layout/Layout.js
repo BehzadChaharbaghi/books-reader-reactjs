@@ -8,7 +8,7 @@ const Layout = (props) => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      {/*<RightSideBar />*/}
+      <RightSideBar />
       <Heders />
       <div>{props.children}</div>
     </div>

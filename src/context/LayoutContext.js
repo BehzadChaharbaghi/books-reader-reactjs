@@ -9,6 +9,8 @@ function layoutReducer(state, action) {
   switch (action.type) {
     case "TOGGLE_DRAWER":
       return { ...state, drawerOpen: !state.drawerOpen };
+    case "SET_LOGIN_STATE":
+      return { ...state, loginState: action.payload };
     default: {
       throw new Error(`Unhandled action type: ${action.type}`);
     }
@@ -18,6 +20,7 @@ function layoutReducer(state, action) {
 function LayoutProvider({ children }) {
   var [state, dispatch] = React.useReducer(layoutReducer, {
     drawerOpen: false,
+    loginState: false,
   });
   return (
     <LayoutStateContext.Provider value={state}>
@@ -44,11 +47,23 @@ function useLayoutDispatch() {
   return context;
 }
 
-export { LayoutProvider, useLayoutState, useLayoutDispatch, toggleDrawer };
+export {
+  LayoutProvider,
+  useLayoutState,
+  useLayoutDispatch,
+  toggleDrawer,
+  setLoginState,
+};
 
 // ###########################_SetStates_################################
 function toggleDrawer(dispatch) {
   dispatch({
     type: "TOGGLE_DRAWER",
+  });
+}
+function setLoginState(dispatch, bool) {
+  dispatch({
+    type: "SET_LOGIN_STATE",
+    payload: bool,
   });
 }

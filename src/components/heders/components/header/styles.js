@@ -4,7 +4,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     clear: "both",
     position: "relative",
-    height: "4rem",
+    height: "4.5rem",
     background: "#09001A",
   },
   appbar: {

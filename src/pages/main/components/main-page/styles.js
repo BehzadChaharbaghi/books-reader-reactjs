@@ -30,6 +30,15 @@ const useStyles = makeStyles((theme) => ({
     gridTemplateColumns: "repeat(1, 1fr)",
     gridGap: 10,
   },
+  gridAfterLogin: {
+    display: "grid",
+    gridTemplateColumns: "repeat(1, 1fr)",
+    gridGap: 10,
+    marginRight: "5rem",
+    [theme.breakpoints.down("sm")]: {
+      marginRight: 0,
+    },
+  },
   spanRow: {
     gridAutoRows: "max-content",
     backgroundColor: "#09001A",
