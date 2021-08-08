@@ -44,14 +44,13 @@ const SubscriptionTypes = () => {
           <h2>خرید اشتراک</h2>
         </Grid>
         <Grid item xs={12} className={classes.radioContainer}>
-          <FormControl component="fieldset" className={classes.formControl}>
+          <FormControl component="fieldset">
             <RadioGroup
               column
               aria-label="subscription-types"
               name="SubscriptionTypes"
               value={value}
               onChange={handleChange}
-              className={classes.textForm}
             >
               {creditType.map((item) => (
                 <>
