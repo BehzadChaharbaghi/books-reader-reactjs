@@ -1,4 +1,4 @@
-import { getAxiosInstanceJsonServer } from "./api";
+import { getAxiosInstanceApi, getAxiosInstanceJsonServer } from "./api";
 
 // export const getProductByIdRequest = (id, callback) => {
 //   getAxiosInstanceJsonServer()
@@ -61,6 +61,18 @@ export const getMostSelledProducts = (callback) => {
       callback(false, error);
     });
 };
+export const getCategoryItem = (callback) => {
+  getAxiosInstanceApi()
+    .get("Product/GetFreeProducts")
+    .then((response) => {
+      const data = response.data;
+      callback(true, data);
+    })
+    .catch((error) => {
+      console.log(error);
+      callback(false, error);
+    });
+};
 
 export const newCommentRequest = (data, callback) => {
   getAxiosInstanceJsonServer()
@@ -106,6 +118,18 @@ export const getProductCategorie = (callback) => {
 export const getSubscriptionTypes = (callback) => {
   getAxiosInstanceJsonServer()
     .get("subscriptionTypes")
+    .then((response) => {
+      const data = response.data;
+      callback(true, data);
+    })
+    .catch((error) => {
+      console.log(error);
+      callback(false, error);
+    });
+};
+export const getIncreaseCredit = (callback) => {
+  getAxiosInstanceJsonServer()
+    .get("IncreaseCredit")
     .then((response) => {
       const data = response.data;
       callback(true, data);

@@ -57,6 +57,44 @@
       "color": "#deaaff"
     }
   ],
+
+  "IncreaseCredit": [
+    {
+      "id": 1,
+      "textCredit": "اعتبار 10000 تومانی",
+      "amount": 10000,
+      "color": "#d62828"
+    },
+    {
+      "id": 2,
+      "textCredit": "اعتبار 25000 تومانی",
+      "amount": 25000,
+      "color": "#f77f00"
+    },
+    {
+      "id": 3,
+      "textCredit": "اعتبار 50000 تومانی",
+      "amount": 50000,
+      "color": "#fcbf49"
+    },
+    {
+      "id": 4,
+      "textCredit": "اعتبار 75000تومانی",
+      "amount": 75000,
+      "color": "#0a9396"
+    },
+    {
+      "id": 5,
+      "textCredit": "اعتبار 100000 تومانی",
+      "amount": 100000,
+      "color": "#ff4d6d"
+    },    {
+      "id": 6,
+      "textCredit": "اعتبار 500 هزار تومانی",
+      "amount": 450000,
+      "color": "#8338ec"
+    }
+  ],
   "getMainProductCategoryList": [
     [
       {
