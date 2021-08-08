@@ -18,7 +18,6 @@ const MyLibrary = () => {
   const classes = useStyles();
   const [books, setBooks] = useState([]);
   const [isLoading, setLoading] = useState(true);
-  const [buttonId, setButtonId] = useState(0);
   const [btnClick, setBtnClick] = useState(initialState);
 
   const handleClick = useCallback(
