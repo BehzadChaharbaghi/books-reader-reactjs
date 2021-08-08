@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     clear: "both",
     position: "relative",
@@ -23,6 +23,18 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     alignContent: "center",
   },
+  // ravesh dirty baraye ekhtesas dadan stylr bad az login...
+  navAfterLogin: {
+    display: "flex",
+    flexDirection: "row",
+    flexGrow: 1,
+    // paddingRight: "3rem",
+    justifyContent: "flex-start",
+    textAlign: "center",
+    alignItems: "center",
+    alignContent: "center",
+    marginRight: "4rem",
+  },
   logoBtn: {
     padding: 0,
   },
@@ -37,6 +49,17 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "row",
     textDecoration: "none",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  iconTitle: {
+    marginRight: "1rem",
+    "& svg": {
+      width: "2rem",
+      height: "2rem",
+      color: "#fff",
+      marginTop: 6,
+    },
   },
   appbarTitle: {
     fontWeight: 400,
@@ -53,6 +76,37 @@ const useStyles = makeStyles((theme) => ({
       boxShadow: "0 3px 50px 0 rgba(255, 255, 255, 0.24)",
       backgroundColor: "#ffffff",
     },
+  },
+  containerProfile: {
+    cursor: "pointer",
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    direction: "ltr",
+    "& input": {
+      display: "none",
+    },
+  },
+  imgProfile: {
+    width: 50,
+    height: 50,
+    borderRadius: "50%",
+    marginRight: "0.5rem",
+  },
+  menu: {
+    margin: "3.5rem 0 0 0",
+    "& .MuiMenu-paper": {
+      background: "#212121",
+      color: "#fff",
+      borderRadius: "0 1rem 0 1rem",
+    },
+    "& .MuiListItem-button:hover": {
+      backgroundColor: "rgba(0, 0, 0, 0.15)",
+    },
+  },
+  linkMenu: {
+    textDecoration: "none",
+    color: "inherit",
   },
 }));
 
