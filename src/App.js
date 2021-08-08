@@ -12,6 +12,7 @@ import { LayoutProvider } from "./context/LayoutContext";
 import { ProductProvider } from "./context/ProductContext";
 import MyLibrary from "./pages/main/components/my-library/MyLibrary";
 import IncreaseCredit from "./pages/main/components/increase-credit/IncreaseCredit";
+import UserInfo from "./pages/user-information/UserInfo";
 
 const isLogin = () => !!localStorage.getItem("token");
 
@@ -68,6 +69,7 @@ const App = () => {
                   <Route path={"/IncreaseCredit"} component={IncreaseCredit} />
                   <Route path={"/MyLibrary"} component={MyLibrary} />
                 </Main>
+                <Route path={"/UserInfo"} component={UserInfo} />
               </Layout>
             </ProductProvider>
           </LayoutProvider>
