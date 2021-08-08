@@ -3,8 +3,6 @@ import LandingPage from "./pages/landing page/LandingPage";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import AudioBook from "./pages/main/components/audio-book/AudioBook";
 import { ToastContainer } from "material-react-toastify";
-import { Redirect } from "react-router-dom";
-import Header from "./components/heders/components/header/Header";
 import Layout from "./components/layout/Layout";
 import Main from "./pages/main/Main";
 import MainPage from "./pages/main/components/main-page/MainPage";
@@ -13,6 +11,7 @@ import BookDetail from "./pages/main/components/book-detail/BookDetail";
 import { LayoutProvider } from "./context/LayoutContext";
 import { ProductProvider } from "./context/ProductContext";
 import MyLibrary from "./pages/main/components/my-library/MyLibrary";
+import IncreaseCredit from "./pages/main/components/increase-credit/IncreaseCredit";
 
 const isLogin = () => !!localStorage.getItem("token");
 
@@ -66,6 +65,7 @@ const App = () => {
                     path={"/SubscriptionTypes"}
                     component={SubscriptionTypes}
                   />
+                  <Route path={"/IncreaseCredit"} component={IncreaseCredit} />
                   <Route path={"/MyLibrary"} component={MyLibrary} />
                 </Main>
               </Layout>
