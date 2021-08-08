@@ -33,7 +33,11 @@ const RightSideBar = () => {
               aria-label="logo picture"
               component="span"
             >
-              <img alt={"logo"} className={classes.logoImg} src={"/images/logo.png"} />
+              <img
+                alt={"logo"}
+                className={classes.logoImg}
+                src={"/images/logo.png"}
+              />
             </IconButton>
           </>
         )}
