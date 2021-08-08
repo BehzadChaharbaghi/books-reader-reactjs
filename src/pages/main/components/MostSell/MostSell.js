@@ -30,6 +30,7 @@ const MostSell = () => {
   if (isLoading) {
     return <Loading />;
   }
+
   return (
     <div className={classes.root}>
       <Typography variant={"h4"} component={"h1"}>
