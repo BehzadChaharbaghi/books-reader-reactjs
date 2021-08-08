@@ -9,12 +9,11 @@ html {
 *::after {
     box-sizing: inherit;
 }
-
-/*body {*/
-/*    font-family: Arial, Helvetica, sans-serif;*/
-/*    font-size: 1.6rem;*/
-/*    !*background-color: #0d0127 !important;*!*/
-/*}*/
+::-webkit-scrollbar {
+    display: none;
+    -ms-overflow-style: none;
+    /*scrollbar-width: none; !* Firefox *!*/
+}
 
 #title,
 #bp-wrapper {

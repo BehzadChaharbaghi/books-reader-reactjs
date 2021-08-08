@@ -14,6 +14,11 @@ const Theme = createTheme({
         fontFamily: "Shabnam",
       },
     },
+    MuiMenuItem: {
+      root: {
+        fontFamily: "Shabnam",
+      },
+    },
   },
 });
 
