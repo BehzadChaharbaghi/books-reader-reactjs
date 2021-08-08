@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import useStyles from "./styles";
 import {
-  AppBar,
   Collapse,
   IconButton,
   Toolbar,
