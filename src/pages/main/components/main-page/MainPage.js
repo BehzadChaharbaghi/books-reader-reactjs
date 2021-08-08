@@ -2,7 +2,6 @@ import React from "react";
 import useStyles from "./styles";
 import classNames from "classnames/bind";
 import MoreSection from "../../../landing page/components/MoreSection/MoreSection";
-import FreeSection from "../../../landing page/components/FreeSection/FreeSection";
 import {
   Button,
   Card,
@@ -12,6 +11,7 @@ import {
 } from "@material-ui/core";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import MostSell from "../MostSell/MostSell";
+import GetCategorySwiper from "../../../../components/get-category-swiper/GetCategorySwiper";
 
 const isLogin = () => !!localStorage.getItem("token");
 
@@ -36,10 +36,8 @@ const MainPage = () => {
             <MostSell />
           </div>
           <div className={classNames(classes.spanRow, classes.sectionViewBook)}>
-            <section className={classes.textTitleViewBook}>
-              <h3>موفقیت</h3>
-            </section>
-            <FreeSection />
+            {/*<FreeSection />*/}
+            <GetCategorySwiper />
           </div>
           <div className={classNames(classes.spanRow, classes.sectionFree)}>
             <section className={classes.sectionTextBtn}>

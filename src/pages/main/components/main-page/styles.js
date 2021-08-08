@@ -6,24 +6,24 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     background: "#09001A",
   },
+  background: {
+    position: "static",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    minHeight: "55vh",
+    backgroundImage: `url(${
+      process.env.PUBLIC_URL + "/images/index-main.png"
+    })`,
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+  },
   mainSection: {
     width: "98%",
     margin: "0 auto",
     marginTop: "1.5rem",
     textAlign: "center",
     color: "#000",
-  },
-  background: {
-    position: "static",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    minHeight: "60vh",
-    backgroundImage: `url(${
-      process.env.PUBLIC_URL + "/images/index-main.png"
-    })`,
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
   },
   grid: {
     display: "grid",
