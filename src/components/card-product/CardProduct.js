@@ -18,7 +18,7 @@ const CardProduct = ({ item }) => {
   // if (isLoading) {
   //   return <Loading />;
   // }
-  // console.log(items);
+  console.log(item);
   return (
     <Card className={classes.card}>
       <Link to={"/BookDetail/" + item.id}>
