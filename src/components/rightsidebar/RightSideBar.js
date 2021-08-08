@@ -14,7 +14,7 @@ const RightSideBar = () => {
     { icon: <LocalMallIcon />, link: "/index" },
     { icon: <AccountBalanceWalletIcon />, link: "/SubscriptionTypes" },
     { icon: <FolderIcon />, link: "/MyLibrary" },
-    { icon: <QuestionAnswerIcon />, link: "" },
+    { icon: <QuestionAnswerIcon />, link: "/IncreaseCredit" },
     { icon: <InfoIcon />, link: "" },
   ];
   //{__Breakpoints__}
@@ -33,7 +33,7 @@ const RightSideBar = () => {
               aria-label="logo picture"
               component="span"
             >
-              <img className={classes.logoImg} src={"/images/logo.png"} />
+              <img alt={"logo"} className={classes.logoImg} src={"/images/logo.png"} />
             </IconButton>
           </>
         )}
