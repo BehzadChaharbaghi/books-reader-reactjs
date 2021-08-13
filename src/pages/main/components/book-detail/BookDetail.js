@@ -27,13 +27,17 @@ const BookDetail = (props) => {
   const [isLoading, setLoading] = useState(true);
 
   const newComment = () => {
-    let comment = commentText;
+    let comment = {
+      commentTxt: commentText,
+    };
+    console.log(comment);
     if (!comment) return;
-    const formData = new FormData();
-    formData.append("text", commentText);
+
+    // const formData = new FormData();
+    // formData.append("text", commentText);
 
     // axios req
-    newCommentRequest(formData, (isOk, data) => {
+    newCommentRequest(comment, (isOk, data) => {
       if (!isOk) return toast.error(data);
 
       toast.success("نظر شما با موفقیت ثبت شد...");
