@@ -31,7 +31,7 @@ const GetCategorySwiper = () => {
   return (
     <div className={classes.root}>
       <section className={classes.textTitleViewBook}>
-        <h3> {items[0].categoryName}</h3>
+        <h3> {items.categoryName}</h3>
       </section>
       <section className={classes.container}>
         <Swiper
