@@ -10,7 +10,7 @@ import LocalPharmacyOutlinedIcon from "@material-ui/icons/LocalPharmacyOutlined"
 
 const Header = () => {
   const classes = useStyles();
-  const [login, setLogin] = useState(false);
+  const isLogin = () => !!localStorage.getItem("token");
 
   const pubTitles = [
     { title: "صفحه اصلی" },
@@ -24,12 +24,13 @@ const Header = () => {
     { title: "سریال صوتی", icon: <GroupWorkIcon /> },
     { title: "کپسول", icon: <LocalPharmacyOutlinedIcon /> },
   ];
-
+  console.log(isLogin());
+  console.log(!isLogin());
   return (
     <div className={classes.root}>
       <AppBar className={classes.appbar} elevation={0}>
         <Toolbar className={classes.appbarWrapper}>
-          {!login && (
+          {isLogin && (
             <>
               <nav className={classes.nav}>
                 <IconButton
@@ -39,6 +40,7 @@ const Header = () => {
                 >
                   <img className={classes.logoImg} src={"/images/logo.png"} />
                 </IconButton>
+                شح
                 {pubTitles.map((item) => {
                   return (
                     <Button>
@@ -52,7 +54,7 @@ const Header = () => {
               <Button className={classes.btnLogin}>ورود / ثبت نام</Button>
             </>
           )}
-          {login && (
+          {!isLogin && (
             <>
               <nav className={classes.nav}>
                 {loginTitles.map((item) => {
@@ -66,7 +68,7 @@ const Header = () => {
                   );
                 })}
               </nav>
-              <Button className={classes.btnLogin}>کاربرا</Button>
+              <Button className={classes.btnLogin}>کاربر</Button>
             </>
           )}
         </Toolbar>
