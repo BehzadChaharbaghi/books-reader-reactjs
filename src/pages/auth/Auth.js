@@ -11,7 +11,7 @@ import {
 import ReportProblemOutlinedIcon from "@material-ui/icons/ReportProblemOutlined";
 import Loading from "../../components/Loading/Loading";
 import { toast } from "material-react-toastify";
-import { loginApi } from "../../api/api_auth";
+import { loginApi, registerApi } from "../../api/api_auth";
 
 let useClickOutside = (handler) => {
   let domNode = useRef();
@@ -62,37 +62,37 @@ const Auth = (props) => {
   };
 
   const validateRegister = (user) => {
-    if (!user.name) return "نام خودتون رو وارد کنید";
-    if (!user.family) return "نام خانوادگی خودتون رو وارد کنید";
-    if (!user.mobile) return "باید حتما شماره موبایل وارد بشه!";
-    if (!user.password) return "باید حتما پسورد وارد بشه!";
-    if (user.password !== user.confPassword)
-      return "تکرار رمز با رمز اولیه همخوانی ندارد";
+    // if (!user.name) return "نام خودتون رو وارد کنید";
+    // if (!user.family) return "نام خانوادگی خودتون رو وارد کنید";
+    if (!user.UserName) return "باید حتما شماره موبایل وارد بشه!";
+    if (!user.Password) return "باید حتما پسورد وارد بشه!";
+    // if (user.Password !== user.confPassword)
+    //   return "تکرار رمز با رمز اولیه همخوانی ندارد";
   };
 
   // Register Controller
   const handleRegister = () => {
     const user = {
-      name: nameRegister,
-      family: lastNameRegister,
-      mobile: mobileRegister,
-      password: passwordRegister,
-      confPassword: confpasswordRegister,
+      // name: nameRegister,
+      // family: lastNameRegister,
+      UserName: mobileRegister,
+      Password: passwordRegister,
+      // confPassword: confpasswordRegister,
     };
     const error = validateRegister(user);
     if (error) return toast.warning(error);
-    user.confPassword = undefined;
+    // user.confPassword = undefined;
+    console.log(user);
+    registerApi(user, (isOk, data) => {
+      if (!isOk) return toast.error(data);
 
-    // registerApi(user, (isOk, data) => {
-    //   if (!isOk) return toast.error(data);
-    //
-    //   toast.success("ثبت نام شما با موفقیت انجام شد");
-    //   localStorage.setItem("name", data.name);
-    //   localStorage.setItem("image", data.image);
-    //   localStorage.setItem("username", data.username);
-    //   localStorage.setItem("x-auth-token", data["x-auth-token"]);
-    //   window.location.reload();
-    // });
+      toast.success("ثبت نام شما با موفقیت انجام شد");
+      // localStorage.setItem("UserName", data.UserName);
+      // // localStorage.setItem("image", data.image);
+      // localStorage.setItem("Password", data.Password);
+      // localStorage.setItem("token", data["token"]);
+      window.location.reload();
+    });
   };
   // Login Controller
   const handleLogin = () => {
