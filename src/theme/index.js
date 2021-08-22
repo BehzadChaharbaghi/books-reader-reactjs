@@ -19,6 +19,11 @@ const Theme = createTheme({
         fontFamily: "Shabnam",
       },
     },
+    MuiNativeSelect: {
+      select: {
+        fontFamily: "Shabnam"
+      }
+    }
   },
 });
 
