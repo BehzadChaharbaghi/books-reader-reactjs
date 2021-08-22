@@ -9,9 +9,9 @@ import {
   Typography,
 } from "@material-ui/core";
 import ReportProblemOutlinedIcon from "@material-ui/icons/ReportProblemOutlined";
-import Loading from "../../../components/Loading/Loading";
 import { toast } from "material-react-toastify";
 import { loginApi, registerApi } from "../../../api/api_auth";
+import Loading from "../../../components/Loading/Loading";
 
 let useClickOutside = (handler) => {
   let domNode = useRef();
@@ -57,15 +57,15 @@ const AuthSwiper = (props) => {
   };
   //Validate
   const validateLogin = (user) => {
-    if (!user.username) return "نام کاربری فراموش نشه";
+    if (!user.phoneNumber) return "نام کاربری فراموش نشه";
     if (!user.password) return "باید حتما پسورد وارد بشه";
   };
 
   const validateRegister = (user) => {
-    // if (!user.name) return "نام خودتون رو وارد کنید";
-    // if (!user.family) return "نام خانوادگی خودتون رو وارد کنید";
-    if (!user.UserName) return "باید حتما شماره موبایل وارد بشه!";
-    if (!user.Password) return "باید حتما پسورد وارد بشه!";
+    if (!user.firstName) return "نام خودتون رو وارد کنید";
+    if (!user.lastName) return "نام خانوادگی خودتون رو وارد کنید";
+    if (!user.phoneNumber) return "باید حتما شماره موبایل وارد بشه!";
+    if (!user.password) return "باید حتما پسورد وارد بشه!";
     // if (user.Password !== user.confPassword)
     //   return "تکرار رمز با رمز اولیه همخوانی ندارد";
   };
@@ -73,10 +73,10 @@ const AuthSwiper = (props) => {
   // Register Controller
   const handleRegister = () => {
     const user = {
-      // name: nameRegister,
-      // family: lastNameRegister,
-      UserName: mobileRegister,
-      Password: passwordRegister,
+      firstName: nameRegister,
+      lastName: lastNameRegister,
+      phoneNumber: mobileRegister,
+      password: passwordRegister,
       // confPassword: confpasswordRegister,
     };
     const error = validateRegister(user);
@@ -99,7 +99,7 @@ const AuthSwiper = (props) => {
     console.log(mobileLogin);
     console.log(passwordLogin);
     const user = {
-      username: mobileLogin,
+      phoneNumber: mobileLogin,
       password: passwordLogin,
     };
     const error = validateLogin(user);
@@ -109,7 +109,7 @@ const AuthSwiper = (props) => {
       if (!isOk) return toast.error(data);
       // login success & set localStorage browser
       toast.success("شما با موفقیت وارد شدید");
-      localStorage.setItem("username", data.userName);
+      localStorage.setItem("phoneNumber", data.phoneNumber);
       localStorage.setItem("userId", data.userId);
       localStorage.setItem("token", data["token"]);
       window.location.reload();

@@ -10,16 +10,9 @@ const useStyles = makeStyles((theme) => ({
     background: "#09001A",
     margin: 0,
   },
-  loading: {
-    display: "flex",
-    width: "100%",
-    height: "100vh",
-    justifyContent: "center",
-    alignContent: "center",
-    alignItems: "center",
-    textAlign: "center",
-    background: "#09001A",
-    color: "#ddd",
+  link: {
+    textDecoration: "none",
+    color: "#fff",
   },
   container: {
     width: "90%",

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import useStyles from "./styles";
 import { Button } from "@material-ui/core";
-import Auth from "../../../auth/Auth";
+import AuthSwiper from "../../../auth/AuthSwiper/AuthSwiper";
 
 const LoginNow = () => {
   const classes = useStyles();
@@ -15,7 +15,7 @@ const LoginNow = () => {
           ثبت نام
         </Button>
       </section>
-      {isOpen && <Auth isOpen={isOpen} />}
+      {isOpen && <AuthSwiper isOpen={isOpen} />}
     </div>
   );
 };

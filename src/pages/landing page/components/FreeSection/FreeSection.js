@@ -1,59 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import useStyles from "./styles";
 import { Card, CardActionArea, CardMedia, Typography } from "@material-ui/core";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation } from "swiper";
 import "swiper/swiper-bundle.css";
 import "../../../../theme/swiper-styles.css";
+import { getFreeProductCategoryList } from "../../../../api/api_content";
+import { toast } from "material-react-toastify";
+import Loading from "../../../../components/Loading/Loading";
 
 SwiperCore.use([Navigation]);
 
 const FreeSection = () => {
   const classes = useStyles();
-  const text = [
-    {
-      imageUrl: "/images/book1.jpg",
-      title: "باشگاه 5 صبحی ها",
-      author: "برایان ترسی",
-      score: 10,
-      price: "رایگان",
-    },
-    {
-      imageUrl: "/images/book2.jpg",
-      title: "استرينگ كست",
-      author: "فئودور دایستیافوسکی",
-      score: 10,
-      price: "رایگان",
-    },
-    {
-      imageUrl: "/images/book1.jpg",
-      title: "من پیش از تو",
-      author: "برایان ترسی",
-      score: 5.5,
-      price: "رایگان",
-    },
-    {
-      imageUrl: "/images/book2.jpg",
-      title: "کتاب راهبی که فراری اش را فروخت",
-      author: "فئودور دایستیافوسکی",
-      score: 10,
-      price: "رایگان",
-    },
-    {
-      imageUrl: "/images/book2.jpg",
-      title: "کتاب راهبی که فراری اش را فروخت",
-      author: "برایان ترسی",
-      score: 5.5,
-      price: "4500 تومان",
-    },
-    {
-      imageUrl: "/images/book2.jpg",
-      title: "کتاب راهبی که فراری اش را فروخت",
-      author: "فئودور دایستیافوسکی",
-      score: 10,
-      price: "رایگان",
-    },
-  ];
+  const [isLoading, setLoading] = useState(true);
+  const [product, setProduct] = useState([1]);
+
+  useEffect(() => {
+    getFreeProductCategoryList((isOk, data) => {
+      if (!isOk) return toast.warning(data.message);
+      setProduct(data);
+      setLoading(false);
+    });
+  }, []);
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <div className={classes.root}>
@@ -79,7 +52,7 @@ const FreeSection = () => {
           navigation
           // spaceBetween={15}
         >
-          {text.map((item) => {
+          {product.map((item) => {
             return (
               <>
                 <SwiperSlide>
@@ -87,7 +60,7 @@ const FreeSection = () => {
                     <CardActionArea>
                       <CardMedia
                         className={classes.media}
-                        image={`${item.imageUrl}`}
+                        image={`${item.pic}`}
                       />
                       <section className={classes.containerContent}>
                         <Typography
@@ -104,7 +77,7 @@ const FreeSection = () => {
                             component={"h6"}
                             className={classes.badge}
                           >
-                            {item.score}
+                            {item.rate}
                           </Typography>
                         </section>
                         <section className={classes.lastLine}>

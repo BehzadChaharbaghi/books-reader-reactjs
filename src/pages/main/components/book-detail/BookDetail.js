@@ -10,11 +10,10 @@ import {
   useProductDispatch,
   useProductState,
 } from "../../../../context/ProductContext";
-import {
-  getProductByIdRequest,
-  newCommentRequest,
-} from "../../../../api/api_content";
+import { newCommentRequest, postCardOrder } from "../../../../api/api_content";
 import Loading from "../../../../components/Loading/Loading";
+import RateStarValue from "../../../../components/rate-star/rateStarValue/RateStarValue";
+import RateStarView from "../../../../components/rate-star/rateStarView/RateStarView";
 
 const BookDetail = (props) => {
   const classes = useStyles();
@@ -25,6 +24,26 @@ const BookDetail = (props) => {
   const location = useLocation();
 
   const [isLoading, setLoading] = useState(true);
+  const [rating, setRating] = useState(0);
+
+  // useEffect(() => {
+  //   const id = getProductByIdRequest(id, (isOk, data) => {
+  //     if (!isOk) return toast.warning(data.message);
+  //     setProductDetail(productDispatch, data);
+  //     setLoading(false);
+  //   });
+  // }, []);
+
+  const onClickAddOrder = () => {
+    const item = {
+      productId: product[1].id,
+      quantity: 115,
+    };
+    postCardOrder(item, (isOk, data) => {
+      if (!isOk) return toast.error(data);
+      toast.success("کتاب به سبد خرید اضافه شد");
+    });
+  };
 
   const newComment = () => {
     let comment = {
@@ -46,26 +65,10 @@ const BookDetail = (props) => {
     });
   };
 
-  useEffect(() => {
-    getProductByIdRequest((isOk, data) => {
-      if (!isOk) return toast.warning(data.message);
-      setProductDetail(productDispatch, data);
-      setLoading(false);
-    });
-    // input.value = "";
-  }, []);
-
-  // useEffect(() => {
-  //   getProductByIdRequest(props.match.params.id, (isOk, data) => {
-  //     if (!isOk) return toast.error(data);
-  //     setProductDetail(productDispatch, data);
-  //   });
-  // }, [location]);
-
   if (isLoading) {
     return <Loading />;
   }
-
+  console.log(product[0]);
   return (
     <div className={classes.root}>
       <Grid container>
@@ -83,8 +86,7 @@ const BookDetail = (props) => {
               </section>
               <div>
                 <section className={classes.rateSection}>
-                  <span>{product[0].rateValue}</span>
-                  <h4>({product[0].countRated})</h4>
+                  <RateStarView items={product[0]} />
                 </section>
                 {/*<span>{product[0].time}</span>*/}
                 <Button variant={"contained"} color={"secondary"}>
@@ -162,8 +164,13 @@ const BookDetail = (props) => {
             </Grid>
             <Grid item>
               <section className={classes.btnSection}>
-                <Button variant={"contained"} fullWidth color={"primary"}>
-                  خرید
+                <Button
+                  variant={"contained"}
+                  fullWidth
+                  color={"primary"}
+                  onClick={onClickAddOrder}
+                >
+                  افزودن به سبد خرید
                 </Button>
                 <div className={classes.twoBtn}>
                   <Button fullWidth variant={"contained"} color={"secondary"}>
@@ -182,7 +189,7 @@ const BookDetail = (props) => {
               <section>
                 <section className={classes.infoSection}>
                   <h5>امتیاز شما به این اثر</h5>
-                  <h5>ایکون ستاره</h5>
+                  <RateStarValue />
                 </section>
                 <section className={classes.infoSection}>
                   <h5>اپیزودهای دیگر</h5>

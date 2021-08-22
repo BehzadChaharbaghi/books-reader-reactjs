@@ -10,6 +10,10 @@ const useStyles = makeStyles((theme) => ({
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
   },
+  link: {
+    textDecoration: "none",
+    color: "#fff",
+  },
   appbar: {
     background: "unset",
   },

@@ -2,7 +2,7 @@ import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: "80%",
+    width: "100%",
     margin: "0 auto",
     background: "#09001A",
     overflow: "hidden",
@@ -14,6 +14,8 @@ const useStyles = makeStyles((theme) => ({
   container: {
     display: "flex",
     justifyContent: "center",
+    alignItems: 'center',
+    textAlign: "center"
   },
   input: {
     minWidth: "15rem",
@@ -26,23 +28,22 @@ const useStyles = makeStyles((theme) => ({
     "& .MuiInputBase-input": {
       background: "#001233",
       borderRight: "solid 3px #ffb703",
+      borderRadius: 5,
       color: "#fff",
       height: "2.5rem",
     },
   },
   dateInput: {
-    "& input": {
-      minWidth: "15rem",
-      background: "#001233",
-      borderRight: "solid 3px #ffb703",
-      height: "2.5rem",
-      maxWidth: "20rem",
-      margin: "1rem 0",
-      border: "unset",
-      borderRadius: 4,
-      textIndent: "4px",
-      color: "inherit",
-    },
+    minWidth: "15rem",
+    maxWidth: "20rem",
+    margin: "1rem 0",
+    border: "unset",
+    borderRadius: 4,
+    textIndent: "4px",
+    color: "inherit",
+    background: "#001233",
+    borderRight: "solid 3px #ffb703",
+    height: "3.5rem",
   },
   selectInput: {
     minWidth: "15rem",
@@ -57,6 +58,9 @@ const useStyles = makeStyles((theme) => ({
       color: "#fff",
       height: "2.5rem",
     },
+    "& .MuiNativeSelect-select:not([multiple]) option, .MuiNativeSelect-select:not([multiple]) optgroup": {
+      background: "#312f2f"
+    }
   },
   btnSection: {
     display: "flex",

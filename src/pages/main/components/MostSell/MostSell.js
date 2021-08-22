@@ -5,10 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation } from "swiper";
 import "swiper/swiper-bundle.css";
 import "../../../../theme/swiper-styles.css";
-import {
-  getMoreSection,
-  getMostSelledProducts,
-} from "../../../../api/api_content";
+import { getMostSelledProducts } from "../../../../api/api_content";
 import { toast } from "material-react-toastify";
 import Loading from "../../../../components/Loading/Loading";
 
@@ -26,7 +23,7 @@ const MostSell = () => {
       setLoading(false);
     });
   }, []);
-
+  //تعداد مشخص بگیر تاپ
   if (isLoading) {
     return <Loading />;
   }

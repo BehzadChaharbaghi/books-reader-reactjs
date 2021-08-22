@@ -12,6 +12,9 @@ import {
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import MostSell from "../MostSell/MostSell";
 import GetCategorySwiper from "../../../../components/get-category-swiper/GetCategorySwiper";
+import { Link } from "react-router-dom";
+import NewProduct from "../new-product/NewProduct";
+import FreeSection from "../../../landing page/components/FreeSection/FreeSection";
 
 const isLogin = () => !!localStorage.getItem("token");
 
@@ -31,7 +34,9 @@ const MainPage = () => {
           >
             <section className={classes.sectionTextBtn}>
               <h3>پرفروش ها</h3>
-              <Button variant={"outlined"}>بیشتر</Button>
+              <Link to={"/NewProductPage"}>
+                <Button variant={"outlined"}>بیشتر</Button>
+              </Link>
             </section>
             <MostSell />
           </div>
@@ -42,15 +47,17 @@ const MainPage = () => {
           <div className={classNames(classes.spanRow, classes.sectionFree)}>
             <section className={classes.sectionTextBtn}>
               <h3>رایگان ها</h3>
-              <Button variant={"outlined"}>بیشتر</Button>
+              <Link to={"/FreeSectionPage"}>
+                <Button variant={"outlined"}>بیشتر</Button>
+              </Link>
             </section>
-            <MostSell />
+            <FreeSection />
           </div>
           <div className={classNames(classes.spanRow, classes.sectionViewBook)}>
             <section className={classes.textTitleViewBook}>
               <h3>جدیدترین های تاک</h3>
             </section>
-            <MostSell />
+            <NewProduct />
           </div>
           {/*Footer Section*/}
           <div className={classes.spanRowFooter}>

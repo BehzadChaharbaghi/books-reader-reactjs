@@ -8,33 +8,48 @@ import {
   useTheme,
 } from "@material-ui/core";
 // {__Icons__}
-import MenuIcon from "@material-ui/icons/Menu";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import ListIcon from "@material-ui/icons/List";
 import DrawerMenu from "../../../../components/heders/components/drawer/DrawerMenu";
 import Header from "../../../../components/heders/components/header/Header";
+import { Link } from "react-router-dom";
+import {
+  getMostSelledProducts,
+  getNavbarItems,
+} from "../../../../api/api_content";
+import { toast } from "material-react-toastify";
+import Loading from "../../../../components/Loading/Loading";
 
 const Navbar = () => {
   const classes = useStyles();
   //{__State__}
   const [checked, setChecked] = useState(false);
+  const [navItems, setNavItems] = useState([]);
+  const [isLoading, setLoading] = useState(true);
   //{__Breakpoints__}
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down("sm"));
 
-  const navItem = ["کتاب های صوتی", "پادکست", "سریال صوتی", "کپسول"].map(
-    (item) => {
-      return (
-        <a href={"#"}>
-          <h3>{item}</h3>
-        </a>
-      );
-    }
-  );
-
   useEffect(() => {
     setChecked(true);
+    getNavbarItems((isOk, data) => {
+      if (!isOk) return toast.warning(data.message);
+      setNavItems(data);
+      setLoading(false);
+    });
   }, []);
+
+  const navItem = navItems.map((item) => {
+    return (
+      <Link to={`${item.url}`} className={classes.link}>
+        <h3>{item.title}</h3>
+      </Link>
+    );
+  });
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <div className={classes.root}>

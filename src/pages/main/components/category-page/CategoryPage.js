@@ -1,93 +1,106 @@
 import React, { useEffect, useState } from "react";
 import useStyles from "./styles";
 import { Grid, Card, CardActionArea, CardMedia } from "@material-ui/core";
-import { getProductCategorie } from "../../../../api/api_content";
-import ReactLoading from "react-loading";
+import { getCategoryTitle } from "../../../../api/api_content";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import { toast } from "material-react-toastify";
+import { Link } from "react-router-dom";
+import Loading from "../../../../components/Loading/Loading";
 
-const AudioBook = () => {
+const CategoryPage = () => {
   const classes = useStyles();
-  const [categorie, setCategorie] = useState([]);
   const [isLoading, setLoading] = useState(true);
+  const [categoryTitle, setCategoryTitle] = useState([]);
 
   useEffect(() => {
-    getProductCategorie((isOk, data) => {
+    getCategoryTitle((isOk, data) => {
       if (!isOk) return toast.warning(data.message);
-      setCategorie(data);
+      setCategoryTitle(data);
       setLoading(false);
     });
   }, []);
 
-  if (isLoading) {
+  const titles = categoryTitle.map((item) => {
     return (
-      <div className={classes.loading}>
-        <ReactLoading type={"bars"} height={"5rem"} width={"5rem"} />
-      </div>
+      <Link to={`${item.id}`} className={classes.link}>
+        <Grid
+          key={item.id}
+          className={classes.imageContainer}
+          item
+          xs={12}
+          sm={4}
+        >
+          <Card>
+            <CardActionArea>
+              <CardMedia
+                className={classes.media}
+                image={`${item.pic}`}
+                title="image"
+              />
+              <h1 className={classes.textImg}>{item.title}</h1>
+            </CardActionArea>
+          </Card>
+        </Grid>
+      </Link>
     );
+    {
+      /*<Grid className={classes.imageContainer} item xs={12}>*/
+    }
+    {
+      /*  <Card>*/
+    }
+    {
+      /*    <CardActionArea>*/
+    }
+    {
+      /*      <CardMedia*/
+    }
+    {
+      /*        className={classes.mediaCenter}*/
+    }
+    {
+      /*        image={item.imageUrl}*/
+    }
+    {
+      /*        title="image"*/
+    }
+    {
+      /*      />*/
+    }
+    {
+      /*      <section className={classes.textPodcast}>*/
+    }
+    {
+      /*        <h1>{item.title}</h1>*/
+    }
+    {
+      /*        <PlayArrowIcon />*/
+    }
+    {
+      /*      </section>*/
+    }
+    {
+      /*    </CardActionArea>*/
+    }
+    {
+      /*  </Card>*/
+    }
+    {
+      /*</Grid>*/
+    }
+  });
+
+  if (isLoading) {
+    return <Loading />;
   }
 
   return (
     <div className={classes.root}>
       <Grid className={classes.container} spacing={1} container>
-        {[0, 1, 2, 3, 4, 5].map((item) => (
-          <Grid
-            key={item}
-            className={classes.imageContainer}
-            item
-            xs={12}
-            sm={4}
-          >
-            <Card>
-              <CardActionArea>
-                <CardMedia
-                  className={classes.media}
-                  image={categorie[0].imageUrl}
-                  title="image"
-                />
-                <h1 className={classes.textImg}>{categorie[0].title}</h1>
-              </CardActionArea>
-            </Card>
-          </Grid>
-        ))}
-        <Grid className={classes.imageContainer} item xs={12}>
-          <Card>
-            <CardActionArea>
-              <CardMedia
-                className={classes.mediaCenter}
-                image={categorie[1].imageUrl}
-                title="image"
-              />
-              <section className={classes.textPodcast}>
-                <h1>{categorie[1].title}</h1>
-                <PlayArrowIcon />
-              </section>
-            </CardActionArea>
-          </Card>
-        </Grid>
-        {[0, 1, 2].map((item) => (
-          <Grid
-            key={item}
-            className={classes.imageContainer}
-            item
-            xs={12}
-            sm={4}
-          >
-            <Card>
-              <CardActionArea>
-                <CardMedia
-                  className={classes.media}
-                  image={categorie[0].imageUrl}
-                  title="image"
-                />
-                <h1 className={classes.textImg}>{categorie[0].title}</h1>
-              </CardActionArea>
-            </Card>
-          </Grid>
-        ))}
+        {titles}
       </Grid>
     </div>
   );
 };
 
-export default AudioBook;
+export default CategoryPage;

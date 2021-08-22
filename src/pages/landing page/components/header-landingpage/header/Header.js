@@ -24,13 +24,12 @@ const Header = () => {
     { title: "سریال صوتی", icon: <GroupWorkIcon /> },
     { title: "کپسول", icon: <LocalPharmacyOutlinedIcon /> },
   ];
-  console.log(isLogin());
-  console.log(!isLogin());
+
   return (
     <div className={classes.root}>
       <AppBar className={classes.appbar} elevation={0}>
         <Toolbar className={classes.appbarWrapper}>
-          {isLogin && (
+          {!isLogin() && (
             <>
               <nav className={classes.nav}>
                 <IconButton
@@ -51,10 +50,12 @@ const Header = () => {
                   );
                 })}
               </nav>
-              <Button className={classes.btnLogin}>ورود / ثبت نام</Button>
+              <Link className={classes.link} to={"/login"}>
+                <Button className={classes.btnLogin}>ورود / ثبت نام</Button>
+              </Link>
             </>
           )}
-          {!isLogin && (
+          {isLogin() && (
             <>
               <nav className={classes.nav}>
                 {loginTitles.map((item) => {
@@ -68,7 +69,9 @@ const Header = () => {
                   );
                 })}
               </nav>
-              <Button className={classes.btnLogin}>کاربر</Button>
+              <Link className={classes.link} to={"/index"}>
+                <Button className={classes.btnLogin}>ورود به پنل</Button>
+              </Link>
             </>
           )}
         </Toolbar>

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import useStyles from "./styles";
 import DatePicker from "react-multi-date-picker";
+import "react-multi-date-picker/styles/backgrounds/bg-dark.css"
+import opacity from "react-element-popper/animations/opacity"
 import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
 import {
@@ -15,6 +17,8 @@ import {
 import { toast } from "material-react-toastify";
 import Axios from "axios";
 import { getUserInfo, putUserInfo } from "../../../../api/api_content";
+import classNames from 'classnames/bind';
+import styled from 'styled-components';
 
 const Inputs = (props) => {
   const classes = useStyles();
@@ -84,38 +88,58 @@ const Inputs = (props) => {
       setInfo(data);
     });
   }, []);
+  console.log(info);
 
   const setInfoUser = (key, e) => {
     switch (key) {
-      case "UserName":
-        setInfo({ ...info, UserName: e.target.value });
+      case "firstName":
+        setInfo({ ...info, firstName: e.target.value });
         break;
-      case "LastName":
-        setInfo({ ...info, LastName: e.target.value });
+      case "lastName":
+        setInfo({ ...info, lastName: e.target.value });
         break;
-      case "BirthDay":
-        setInfo({ ...info, BirthDay: e.target.value });
+      case "birthDate":
+        setInfo({ ...info, birthDate: e.target.value });
         break;
-      case "NationalCode":
-        setInfo({ ...info, NationalCode: e.target.value });
+      case "nationalCode":
+        setInfo({ ...info, nationalCode: e.target.value });
         break;
-      case "GenderType":
-        setInfo({ ...info, GenderType: parseInt(e.target.value) });
+      case "genderType":
+        setInfo({ ...info, genderType: parseInt(e.target.value) });
         break;
-      case "JobType":
-        setInfo({ ...info, JobType: parseInt(e.target.value) });
+      case "jobType":
+        setInfo({ ...info, jobType: parseInt(e.target.value) });
         break;
-      case "TelNum":
-        setInfo({ ...info, TelNum: e.target.value });
+      case "phone":
+        setInfo({ ...info, phone: e.target.value });
         break;
-      case "Email":
-        setInfo({ ...info, Email: e.target.value });
+      case "email":
+        setInfo({ ...info, email: e.target.value });
         break;
       case "Password":
         setInfo({ ...info, Password: e.target.value });
         break;
     }
   };
+
+  const datePicker = (state) => {
+    console.log(state);
+    return (
+      <DatePicker
+        onOpen={state}
+        className={"bg-dark"}
+        // className={classNames(classes.dateInput, 'bg-dark')}
+        // value={date}
+        calendar={persian}
+        animations={[opacity()]}
+        BackGrounds="Dark"
+        locale={persian_fa}
+        calendarPosition="bottom-right"
+        onChange={(e) => {
+          setInfoUser("birthDay", e);
+        }}
+      />)
+  }
 
   console.log(info);
   return (
@@ -127,9 +151,9 @@ const Inputs = (props) => {
             className={classes.input}
             placeholder="نام"
             type="text"
-            value={info.UserName}
+            value={info.firstName}
             onChange={(e) => {
-              setInfoUser("UserName", e);
+              setInfoUser("firstName", e);
             }}
           />
           {/*<Input*/}
@@ -148,33 +172,36 @@ const Inputs = (props) => {
             className={classes.input}
             placeholder="نام خوانوادگی"
             type="text"
-            value={info.LastName}
+            value={info.lastName}
             onChange={(e) => {
-              setInfoUser("LastName", e);
+              setInfoUser("lastName", e);
             }}
           />
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
           <DatePicker
-            className={classes.dateInput}
-            // value={date}
+            placeholder="تاریخ تولد"
+            inputClass={classes.dateInput}
+            className={"bg-dark"}
             calendar={persian}
+            animations={[opacity()]}
             locale={persian_fa}
             calendarPosition="bottom-right"
-            value={info.BirthDay}
-            // onChange={(e) => {
-            //   setInfoUser("BirthDay", e);
-            // }}
+            onChange={(e) => {
+              setInfoUser("birthDay", e);
+            }}
           />
+
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
           <FormControl align="right">
             <InputLabel>جنسیت</InputLabel>
             <NativeSelect
               className={classes.selectInput}
-              value={info.GenderType}
+              variant='outline'
+              value={info.genderType}
               onChange={(e) => {
-                setInfoUser("GenderType", e);
+                setInfoUser("genderType", e);
               }}
             >
               {genderValue.map((item) => {
@@ -189,9 +216,9 @@ const Inputs = (props) => {
             <InputLabel>شفل</InputLabel>
             <NativeSelect
               className={classes.selectInput}
-              value={info.JobType}
+              value={info.jobType}
               onChange={(e) => {
-                setInfoUser("JobType", e);
+                setInfoUser("jobType", e);
               }}
             >
               {jobValue.map((item) => {
@@ -203,13 +230,13 @@ const Inputs = (props) => {
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
           <TextField
-            required
+            disabled
             className={classes.input}
             placeholder="شماره تلفن"
             type="tel"
-            value={info.TelNum}
+            value={info.phone}
             onChange={(e) => {
-              setInfoUser("TelNum", e);
+              setInfoUser("phone", e);
             }}
           />
         </Grid>
@@ -218,9 +245,9 @@ const Inputs = (props) => {
             className={classes.input}
             placeholder="کد ملی"
             type="text"
-            value={info.NationalCode}
+            value={info.nationalCode}
             onChange={(e) => {
-              setInfoUser("NationalCode", e);
+              setInfoUser("nationalCode", e);
             }}
           />
         </Grid>
@@ -230,23 +257,23 @@ const Inputs = (props) => {
             placeholder="ایمیل"
             type="Email"
             value={info.email}
-            onChange={(e) => {
-              setInfoUser("Email", e);
-            }}
+          // onChange={(e) => {
+          //   setInfoUser("email", e);
+          // }}
           />
         </Grid>
-        <Grid item xs={12} sm={6} md={4}>
-          <TextField
-            required
-            className={classes.input}
-            placeholder="رمز عبور"
-            type="password"
-            value={info.Password}
-            onChange={(e) => {
-              setInfoUser("Password", e);
-            }}
-          />
-        </Grid>
+        {/*<Grid item xs={12} sm={6} md={4}>*/}
+        {/*  <TextField*/}
+        {/*    required*/}
+        {/*    className={classes.input}*/}
+        {/*    placeholder="رمز عبور"*/}
+        {/*    type="password"*/}
+        {/*    value={info.Password}*/}
+        {/*    onChange={(e) => {*/}
+        {/*      setInfoUser("Password", e);*/}
+        {/*    }}*/}
+        {/*  />*/}
+        {/*</Grid>*/}
         <Grid item xs={12} className={classes.btnSection}>
           <Button
             className={classes.btnSave}
