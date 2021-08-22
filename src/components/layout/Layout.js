@@ -4,11 +4,14 @@ import RightSideBar from "../rightsidebar/RightSideBar";
 import Heders from "../heders/Heders";
 import useStyles from "./styles";
 
+const isLogin = () => !!localStorage.getItem("token");
+
 const Layout = (props) => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <RightSideBar />
+      {isLogin() && <RightSideBar />}
+      {/*<RightSideBar />*/}
       <Heders />
       <div>{props.children}</div>
     </div>

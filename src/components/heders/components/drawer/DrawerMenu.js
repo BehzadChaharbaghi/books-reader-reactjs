@@ -17,18 +17,58 @@ const DrawerMenu = () => {
   const [login, setLogin] = useState(false);
 
   const itemDrawerLogin = [
-    "ورود/ثبت نام",
-    "صفحه اصلی",
-    "دانلود اپلیکیشن",
-    "سوالات متداول",
-    "درباره ما",
+    {
+      id: 0,
+      title: "ورود/ثبت نام",
+      url: "/login",
+    },
+    {
+      id: 1,
+      title: "صفحه اصلی",
+      url: "/",
+    },
+    {
+      id: 2,
+      title: "دانلود اپلیکیشن",
+      url: "/",
+    },
+    {
+      id: 3,
+      title: "سوالات متداول",
+      url: "/",
+    },
+    {
+      id: 4,
+      title: "درباره ما",
+      url: "/",
+    },
   ];
   const itemCategorie = [
-    "دسته بندی",
-    "کتاب های صوتی",
-    "پادکست",
-    "سریال صوتی",
-    "کپسول",
+    {
+      id: 0,
+      title: "دسته بندی",
+      url: "/",
+    },
+    {
+      id: 1,
+      title: "کتاب های صوتی",
+      url: "/login",
+    },
+    {
+      id: 2,
+      title: "پادکست",
+      url: "/login",
+    },
+    {
+      id: 3,
+      title: "سریال صوتی",
+      url: "/login",
+    },
+    {
+      id: 4,
+      title: "کپسول",
+      url: "/login",
+    },
   ];
 
   return (
@@ -54,17 +94,23 @@ const DrawerMenu = () => {
       >
         <div className={classes.drawerSection}>
           <List>
-            <ListItem button>{itemDrawerLogin[0]}</ListItem>
-            <ListItem button>{itemDrawerLogin[1]}</ListItem>
-            <ListItem button>{itemDrawerLogin[2]}</ListItem>
-            <ListItem button>{itemDrawerLogin[3]}</ListItem>
-            <ListItem button>{itemDrawerLogin[4]}</ListItem>
+            {itemDrawerLogin.map((item) => {
+              return (
+                <ListItem key={item.id} button>
+                  {item.title}
+                </ListItem>
+              );
+            })}
+            ;
             <Divider className={classes.divider} />
-            <ListItem button>{itemCategorie[0]}</ListItem>
-            <ListItem button>{itemCategorie[1]}</ListItem>
-            <ListItem button>{itemCategorie[2]}</ListItem>
-            <ListItem button>{itemCategorie[3]}</ListItem>
-            <ListItem button>{itemCategorie[4]}</ListItem>
+            {itemCategorie.map((item) => {
+              return (
+                <ListItem key={item.id} button>
+                  {item.title}
+                </ListItem>
+              );
+            })}
+            ;
           </List>
         </div>
       </Drawer>

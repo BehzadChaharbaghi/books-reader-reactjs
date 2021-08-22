@@ -18,6 +18,8 @@ import GroupWorkIcon from "@material-ui/icons/GroupWorkOutlined";
 import LocalPharmacyOutlinedIcon from "@material-ui/icons/LocalPharmacyOutlined";
 import { uploadUserPhoto } from "../../../../api/api_content";
 import { toast } from "material-react-toastify";
+import ShoppingBasketOutlinedIcon from "@material-ui/icons/ShoppingBasketOutlined";
+import Search from "../../../search/Search";
 
 const Header = () => {
   const classes = useStyles();
@@ -107,6 +109,7 @@ const Header = () => {
                   );
                 })}
               </nav>
+              <Search />
               <Button className={classes.btnLogin}>ورود / ثبت نام</Button>
             </>
           )}
@@ -124,6 +127,10 @@ const Header = () => {
                   );
                 })}
               </nav>
+              <Search />
+              <Link className={classes.link} to={"/MyOrders"}>
+                <ShoppingBasketOutlinedIcon />
+              </Link>
               <section
                 className={classes.containerProfile}
                 onClick={handleToggleMenu}

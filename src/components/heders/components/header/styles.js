@@ -23,7 +23,7 @@ const useStyles = makeStyles(() => ({
     alignItems: "center",
     alignContent: "center",
   },
-  // ravesh dirty baraye ekhtesas dadan stylr bad az login...
+  // ravesh dirty baraye ekhtesas dadan style bad az login...
   navAfterLogin: {
     display: "flex",
     flexDirection: "row",
@@ -51,6 +51,13 @@ const useStyles = makeStyles(() => ({
     textDecoration: "none",
     justifyContent: "center",
     alignItems: "center",
+    "& svg": {
+      marginLeft: 5,
+      width: "2rem",
+      height: "2rem",
+      color: "#fff",
+      marginTop: 6,
+    },
   },
   iconTitle: {
     marginRight: "1rem",
