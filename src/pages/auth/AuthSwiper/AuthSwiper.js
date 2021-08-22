@@ -9,9 +9,9 @@ import {
   Typography,
 } from "@material-ui/core";
 import ReportProblemOutlinedIcon from "@material-ui/icons/ReportProblemOutlined";
-import Loading from "../../components/Loading/Loading";
+import Loading from "../../../components/Loading/Loading";
 import { toast } from "material-react-toastify";
-import { loginApi, registerApi } from "../../api/api_auth";
+import { loginApi, registerApi } from "../../../api/api_auth";
 
 let useClickOutside = (handler) => {
   let domNode = useRef();
@@ -32,7 +32,7 @@ let useClickOutside = (handler) => {
 
   return domNode;
 };
-const Auth = (props) => {
+const AuthSwiper = (props) => {
   // {Switch between tab}
   const LOGIN_TAB_VALUE = 1;
   const REG_TAB_VALUE = 2;
@@ -325,4 +325,4 @@ const Auth = (props) => {
   );
 };
 
-export default Auth;
+export default AuthSwiper;
