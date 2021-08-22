@@ -13,18 +13,18 @@ import Axios from "axios";
 //       callback(false, error);
 //     });
 // };
-export const getProductByIdRequest = (callback) => {
-  getAxiosInstanceJsonServer()
-    .get("getMostSelledProducts")
-    .then((response) => {
-      const data = response.data;
-      callback(true, data);
-    })
-    .catch((error) => {
-      console.log(error);
-      callback(false, error);
-    });
-};
+// export const getProductByIdRequest = (callback) => {
+//   getAxiosInstanceJsonServer()
+//     .get("product/findbyid/"+)
+//     .then((response) => {
+//       const data = response.data;
+//       callback(true, data);
+//     })
+//     .catch((error) => {
+//       console.log(error);
+//       callback(false, error);
+//     });
+// };
 
 export const getMainProductCategoryList = (callback) => {
   getAxiosInstanceJsonServer()
@@ -40,8 +40,8 @@ export const getMainProductCategoryList = (callback) => {
 };
 
 export const getFreeProductCategoryList = (callback) => {
-  getAxiosInstanceJsonServer()
-    .get("getFreeProductCategoryList")
+  getAxiosInstanceApi()
+    .get("Product/GetFreeProducts")
     .then((response) => {
       const data = response.data;
       callback(true, data);
@@ -53,10 +53,23 @@ export const getFreeProductCategoryList = (callback) => {
 };
 
 export const getMostSelledProducts = (callback) => {
-  getAxiosInstanceJsonServer()
-    .get("getMostSelledProducts")
+  getAxiosInstanceApi()
+    .get("Product/GetMostSoldProducts")
     .then((response) => {
       const data = response.data;
+      callback(true, data);
+    })
+    .catch((error) => {
+      console.log(error);
+      callback(false, error);
+    });
+};
+export const getNewestProducts = (callback) => {
+  getAxiosInstanceApi()
+    .get("Product/GetNewestPropducts")
+    .then((response) => {
+      const data = response.data;
+      console.log("data", data);
       callback(true, data);
     })
     .catch((error) => {
@@ -78,10 +91,9 @@ export const getCategoryItem = (callback) => {
     });
 };
 
-export const newCommentRequest = (data, callback) => {
-  console.log(JSON.stringify(data));
+export const getCategoryTitle = (callback) => {
   getAxiosInstanceApi()
-    .post("comment/create", JSON.stringify(data))
+    .get("product/GetProductsByCategoryId")
     .then((response) => {
       const data = response.data;
       callback(true, data);
@@ -91,11 +103,10 @@ export const newCommentRequest = (data, callback) => {
       callback(false, error);
     });
 };
-// old
 
 export const getMoreSection = (callback) => {
-  getAxiosInstanceJsonServer()
-    .get("more")
+  getAxiosInstanceApi()
+    .get("product/GetMostVisitedProducts")
     .then((response) => {
       console.log(response);
       const data = response.data;
@@ -158,17 +169,17 @@ export const uploadUserPhoto = (photo, callback) => {
     });
 };
 
-export const getUserInfo = (callback) => {
-  getAxiosInstanceApi()
-    .get("person/findbyid/1001")
-    .then((response) => {
-      const data = response.data;
-      callback(true, data);
-    })
-    .catch((error) => {
-      console.log(error);
-      callback(false, error);
-    });
+export const getUserInfo = (id, callback) => {
+  // getAxiosInstanceApi()
+  //   .get(`person/findbyid/${id}`)
+  //   .then((response) => {
+  //     const data = response.data;
+  //     callback(true, data);
+  //   })
+  //   .catch((error) => {
+  //     console.log(error);
+  //     callback(false, error);
+  //   });
 };
 
 export const putUserInfo = (data, callback) => {
@@ -186,10 +197,134 @@ export const putUserInfo = (data, callback) => {
 };
 
 export const getUserFavorites = (callback) => {
+  //userid
   getAxiosInstanceApi()
-    .get("")
+    .get("product/getUserFavorites")
     .then((response) => {
       console.log(response);
+      const data = response.data;
+      callback(true, data);
+    })
+    .catch((error) => {
+      console.log(error);
+      callback(false, error);
+    });
+};
+
+export const newCommentRequest = (data, callback) => {
+  console.log(JSON.stringify(data));
+  getAxiosInstanceApi()
+    .post("comment/create", JSON.stringify(data))
+    .then((response) => {
+      const data = response.data;
+      callback(true, data);
+    })
+    .catch((error) => {
+      console.log(error);
+      callback(false, error);
+    });
+};
+
+export const postCardOrder = (data, callback) => {
+  // console.log(JSON.stringify(data));
+  getAxiosInstanceApi()
+    .post("orderitem/create", JSON.stringify(data))
+    .then((response) => {
+      const data = response.data;
+      callback(true, data);
+    })
+    .catch((error) => {
+      console.log(error);
+      callback(false, error);
+    });
+};
+
+export const getOrdersList = (callback) => {
+  getAxiosInstanceApi()
+    .get("orderitem/getall")
+    .then((response) => {
+      console.log(response);
+      const data = response.data;
+      callback(true, data);
+    })
+    .catch((error) => {
+      console.log(error);
+      callback(false, error);
+    });
+};
+
+export const getOrderDetail = (callback) => {
+  getAxiosInstanceApi()
+    .get("order/findbyid")
+    .then((response) => {
+      console.log(response);
+      const data = response.data;
+      callback(true, data);
+    })
+    .catch((error) => {
+      console.log(error);
+      callback(false, error);
+    });
+};
+
+export const getNavbarItems = (callback) => {
+  getAxiosInstanceApi()
+    .get("productcategory/getall")
+    .then((response) => {
+      console.log(response);
+      const data = response.data;
+      callback(true, data);
+    })
+    .catch((error) => {
+      console.log(error);
+      callback(false, error);
+    });
+};
+export const getProductBySearch = (callback) => {
+  getAxiosInstanceApi()
+    .get("product/getall?...")
+    .then((response) => {
+      console.log(response);
+      const data = response.data;
+      callback(true, data);
+    })
+    .catch((error) => {
+      console.log(error);
+      callback(false, error);
+    });
+};
+export const getCommentOfProduct = (callback) => {
+  getAxiosInstanceApi()
+    .get("comment/getall")
+    .then((response) => {
+      console.log(response);
+      const data = response.data;
+      callback(true, data);
+    })
+    .catch((error) => {
+      console.log(error);
+      callback(false, error);
+    });
+};
+
+export const removeProductInOrder = (id, callback) => {
+  getAxiosInstanceApi()
+    .delete(`OrderItem/Delete/${id}`)
+    .then((response) => {
+      const data = response.data;
+      callback(true, data);
+    })
+    .catch((error) => {
+      console.log(error);
+      callback(false, error);
+    });
+};
+
+export const postRateByProductId = (data, callback) => {
+  // console.log(JSON.stringify(data));
+  getAxiosInstanceApi()
+    .post("productrate/create", JSON.stringify(data))
+    .then((response) => {
       const data = response.data;
       callback(true, data);
     })
